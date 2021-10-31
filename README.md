@@ -1,10 +1,9 @@
 # Denopkg.dev
 
-![hero image](./hero.png) 
+![hero image](./hero.png)
 
-Denopkg.dev is a free and open source deno package
-proxy for GitHub and GitLab repositories as well as packages in the official
-Deno Registry.
+Denopkg.dev is a free and open source deno package proxy for GitHub and GitLab
+repositories as well as packages from the official Deno Registry.
 
 Denopkg.dev makes use of Cloudflares distributed serverless platform
 [Workers](https://workers.cloudflare.com/) as well as their
@@ -12,11 +11,11 @@ Denopkg.dev makes use of Cloudflares distributed serverless platform
 from the edge. The website is hosted on their JAMstack platform
 [Pages](https://pages.cloudflare.com/).
 
-_Thanks for this amazing services at this point :)_
+_Thanks for these amazing services at this point :)_
 
 ## Usage
 
-If you're to lazy to read the following section you also can use our step by
+If you're to lazy to read the following section you can also use our step by
 step URL Generator at [https://denopkg.dev](https://denopkg.dev/).
 
 ### GitHub Repository
