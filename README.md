@@ -1,7 +1,10 @@
 # Denopkg.dev
 
-Denopkg.dev is a free and open source deno package proxy for GitHub and GitLab
-repositories as well as packages in the official Deno Registry.
+![hero image](./hero.png) 
+
+Denopkg.dev is a free and open source deno package
+proxy for GitHub and GitLab repositories as well as packages in the official
+Deno Registry.
 
 Denopkg.dev makes use of Cloudflares distributed serverless platform
 [Workers](https://workers.cloudflare.com/) as well as their
