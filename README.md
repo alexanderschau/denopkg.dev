@@ -46,6 +46,16 @@ import {} from 'https://gl.denopkg.dev/<username>/<project-name>@<tag name>/path
 
 _(this domain is only a redirect to the one above)_
 
+## Badge
+
+To give your package some extra glamour ✨ we build a denopkg badge for your `README`:
+[![badge preview](https://denopkg.dev/badge.svg)](https://denopkg.dev/import/gh/alexanderschau/denopkg.dev@main/README.md)
+It redirect the use to a custom import page. To try it out, click the example badge above 👆.
+
+```md
+[![badge preview](https://denopkg.dev/badge.svg)](https://denopkg.dev/import/gh/alexanderschau/denopkg.dev@main/README.md)
+```
+
 ## Development
 
 If you have some great ideas for new features feel free to add them on your own.
