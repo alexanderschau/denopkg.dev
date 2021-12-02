@@ -1,9 +1,7 @@
 <script lang="ts">
 	import Tool from '$lib/tool.svelte';
-	import Meta from '$lib/meta.svelte';
 </script>
 
-<Meta />
 <div
 	class="absolute top-0 left-0 h-full w-full text-center bg-secondary dark:bg-secondary-dark text-primary dark:text-primary-dark"
 >

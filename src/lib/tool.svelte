@@ -1,4 +1,6 @@
 <script>
+	import { copyToClipboard } from './fn';
+
 	let registry = '';
 	let tag = '';
 	let path = '';
@@ -15,17 +17,6 @@
 		if (checkGl) {
 			return `gl/${checkGl[1]}/${checkGl[2]}`;
 		}
-	};
-	const copyToClipboard = (str) => {
-		if ('clipboard' in navigator) {
-			return navigator.clipboard.writeText(str);
-		}
-		const el = document.createElement('textarea');
-		el.value = str;
-		document.body.appendChild(el);
-		el.select();
-		document.execCommand('copy');
-		document.body.removeChild(el);
 	};
 	let finalUrl = '';
 	$: finalUrl = `https://denopkg.dev/${repoPath}${tag != '' ? '@' + tag : ''}${

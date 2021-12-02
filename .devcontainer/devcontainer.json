@@ -19,7 +19,8 @@
 		"dbaeumer.vscode-eslint",
 		"denoland.vscode-deno",
 		"astro-build.astro-vscode",
-		"svelte.svelte-vscode"
+		"svelte.svelte-vscode",
+		"bradlc.vscode-tailwindcss"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
