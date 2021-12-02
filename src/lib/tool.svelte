@@ -4,8 +4,8 @@
 	let path = '';
 	let repoPath = '';
 	$: repoPath = getRepoData(registry);
-	const checkGitHub = /github\.com\/(.*?)\/((?:(?!\.git).)*)/;
-	const checkGitLab = /gitlab\.com\/(.*?)\/((?:(?!\.git).)*)/;
+	const checkGitHub = /github\.com\/(.*?)\/([^?# \/]+?)(?:\.git.*|[?# \/].*|)$/;
+	const checkGitLab = /gitlab\.com\/(.*?)\/([^?# \/]+?)(?:\.git.*|[?# \/].*|)$/;
 	const getRepoData = (url) => {
 		const checkGh = url.match(checkGitHub);
 		if (checkGh) {
