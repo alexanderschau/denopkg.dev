@@ -19,7 +19,14 @@
 		</svg>
 
 		<div class="font-bold text-3xl my-5">Deno Package Registry</div>
+		<div class="-mt-3 mb-5">Import any GitHub or GitLab repository to your Deno application</div>
 		<Tool />
+		<hr />
+		<div class="text-left max-w-lg mx-auto">
+			<div class="text-xl font-bold my-3">Use with private repositories</div>
+			To access private repositories just pass your GitHub/GitLab authentication header.
+		</div>
+
 		<div class="opacity-30 my-3">
 			made by <a class="underline" target="_blank" href="https://alexanderschau.com"
 				>@alexanderschau</a

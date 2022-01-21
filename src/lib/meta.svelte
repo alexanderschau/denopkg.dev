@@ -1,7 +1,7 @@
 <script lang="ts">
 	const seoValues = {
 		title: 'Deno Package Registry',
-		description: 'Access your Deno Package from a GitHub Repository within seconds.',
+		description: 'Use GitHub and GitLab as package registry for Deno',
 		creator: 'denopkg.dev'
 	};
 </script>
