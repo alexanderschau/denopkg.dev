@@ -49,11 +49,13 @@ _(this domain is only a redirect to the one above)_
 ## Badge
 
 To give your package some extra glamour ✨ we build a denopkg badge for your `README`:
+
 [![badge preview](https://denopkg.dev/badge.svg)](https://denopkg.dev/import/gh/alexanderschau/denopkg.dev@main/README.md)
+
 It redirect the use to a custom import page. To try it out, click the example badge above 👆.
 
 ```md
-[![badge preview](https://denopkg.dev/badge.svg)](https://denopkg.dev/import/gh/alexanderschau/denopkg.dev@main/README.md)
+[![badge preview](https://denopkg.dev/badge.svg)](https://denopkg.dev/import/<type>/<username>/<repository-name>@<tag name>/path/to/file.ts)
 ```
 
 ## Development

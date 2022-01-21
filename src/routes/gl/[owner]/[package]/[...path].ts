@@ -8,20 +8,6 @@ type ParamsType = {
 	path: string;
 };
 
-const getLatestVersion = async (owner: string, repo: string, headers: Headers) => {
-	const latestTag =
-		((
-			await (
-				await fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
-					headers: {
-						Authorization: headers.get('authorization')
-					}
-				})
-			).json()
-		).tag_name as string) || null;
-	return latestTag || 'master';
-};
-
 export const get: RequestHandler = async (req) => {
 	const params: ParamsType = {
 		owner: req.params.owner,
@@ -34,13 +20,10 @@ export const get: RequestHandler = async (req) => {
 	if (params.tag == '' || params.path == '') {
 		return {
 			status: 302,
-			body: '',
 			headers: {
 				...defaultHeaders,
-				Location: `${req.url.origin}/gh/${params.owner}/${params.package}@${
-					params.tag == ''
-						? await getLatestVersion(params.owner, params.package, req.request.headers)
-						: params.tag
+				Location: `https://denopkg.dev/gh/${params.owner}/${params.package}@${
+					params.tag == '' ? 'master' : params.tag
 				}/${params.path == '' ? 'mod.ts' : params.path}`
 			}
 		};
@@ -50,7 +33,7 @@ export const get: RequestHandler = async (req) => {
 		`https://raw.githubusercontent.com/${params.owner}/${params.package}/${params.tag}/${params.path}`,
 		{
 			headers: {
-				Authorization: req.request.headers.get('authorization')
+				Authorization: req.headers.authorization
 			}
 		}
 	);
