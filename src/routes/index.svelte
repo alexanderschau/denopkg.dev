@@ -5,7 +5,7 @@
 <div
 	class="absolute top-0 left-0 h-full w-full text-center bg-secondary dark:bg-secondary-dark text-primary dark:text-primary-dark"
 >
-	<div class="max-w-xl mx-auto my-10 px-2">
+	<div class="max-w-2xl mx-auto my-10 px-2">
 		<svg
 			class="mx-auto fill-current"
 			width="4rem"

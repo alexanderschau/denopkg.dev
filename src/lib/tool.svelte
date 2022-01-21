@@ -1,31 +1,46 @@
 <script>
 	import { copyToClipboard } from './fn';
 
-	let registry = '';
+	let url = '';
+	let type = '';
+	let owner = '';
+	let repo = '';
 	let tag = '';
 	let path = '';
-	let repoPath = '';
-	$: repoPath = getRepoData(registry);
-	const checkGitHub = /github\.com\/(.*?)\/([^?# \/]+?)(?:\.git.*|[?# \/].*|)$/;
-	const checkGitLab = /gitlab\.com\/(.*?)\/([^?# \/]+?)(?:\.git.*|[?# \/].*|)$/;
-	const getRepoData = (url) => {
+
+	const updateData = () => {
+		const checkGitHub = /github\.com\/(.*?)\/([^?# \/]+?)(?:\.git.*|[?# \/].*|)$/;
+		const checkGitLab =
+			/gitlab\.com\/(.*?)\/([^?# \/]+?)(?:\/-\/[^\/]*\/([^\/]*)(?:\/([^?#]+))?)?(?:\.git.*|[?# \/].*|)$/;
+		console.log(url);
 		const checkGh = url.match(checkGitHub);
 		if (checkGh) {
-			return `gh/${checkGh[1]}/${checkGh[2]}`;
+			type = 'gh';
+			owner = checkGh[1] || '';
+			repo = checkGh[2] || '';
 		}
 		const checkGl = url.match(checkGitLab);
 		if (checkGl) {
-			return `gl/${checkGl[1]}/${checkGl[2]}`;
+			type = 'gl';
+			owner = checkGl[1] || '';
+			repo = checkGl[2] || '';
+			tag = checkGl[3] || '';
+			path = checkGl[4] || '';
 		}
 	};
-	let finalUrl = '';
-	$: finalUrl = `https://denopkg.dev/${repoPath}${tag != '' ? '@' + tag : ''}${
-		path != '' && path[0] != '/' ? '/' + path : path
-	}`;
+	$: url, updateData();
 </script>
 
 <div class="flex">
-	<input bind:value={registry} type="text" placeholder="Repository URL" class="input flex-14" />
+	<input
+		on:input={() => {
+			console.log('input');
+		}}
+		bind:value={url}
+		type="text"
+		placeholder="Enter any GitHub or GitLab URL"
+		class="input flex-14"
+	/>
 	<div class="my-auto mx-3">@</div>
 	<input bind:value={tag} type="text" placeholder="Tag Name" class="input flex-5" />
 </div>
@@ -35,18 +50,18 @@
 	placeholder="File Path (default: /mod.ts)"
 	class="input flex-5"
 />
-{#if repoPath}
+{#if false}
 	Import the following URL in Deno:
 	<div
 		class="my-3 py-2 px-4 text-left rounded-lg bg-primary bg-opacity-2 dark:bg-primary-dark dark:bg-opacity-2 flex w-full"
 	>
 		<div class="flex-1 overflow-auto opacity-70 py-3 px-3">
-			{finalUrl}
+			{'finalUrl'}
 		</div>
 		<div class="my-auto ml-3 cursor-pointer opacity-50 hover:opacity-100">
 			<svg
 				on:click={() => {
-					copyToClipboard(finalUrl);
+					copyToClipboard('finalUrl');
 				}}
 				xmlns="http://www.w3.org/2000/svg"
 				width="1em"
@@ -64,3 +79,10 @@
 		</div>
 	</div>
 {/if}
+<div class="text-left whitespace-normal">
+	<span>https://denopkg.dev/</span><span class="microbox">{type || 'type'}</span>/<span
+		class="microbox">{owner || 'user'}</span
+	>/<span class="microbox">{repo || 'repo'}</span>@<span class="microbox"
+		>{tag || 'tag or branch'}</span
+	>/<span class="microbox">{path || 'path/to/file'}</span>
+</div>

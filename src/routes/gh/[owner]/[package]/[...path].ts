@@ -22,12 +22,12 @@ const getLatestVersion = async (owner: string, repo: string, headers: Headers) =
 	return latestTag || 'master';
 };
 
-export const get: RequestHandler = async (req) => {
+const handler: RequestHandler = async (req) => {
 	const params: ParamsType = {
 		owner: req.params.owner,
 		package: req.params.package.split('@')[0],
 		tag: req.params.package.split('@')[1] || '',
-		path: req.params.path
+		path: req.params.path || ''
 	};
 
 	// check if all required paramters are given
@@ -73,3 +73,7 @@ export const get: RequestHandler = async (req) => {
 		body: await resp.text()
 	};
 };
+
+export const get = handler;
+export const head = handler;
+export const post = handler;
