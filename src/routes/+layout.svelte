@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '../app.postcss';
 	import Meta from '$lib/meta.svelte';
 </script>
 

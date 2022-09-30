@@ -1,4 +1,4 @@
-export const copyToClipboard = (str) => {
+export const copyToClipboard = (str: string) => {
 	if ('clipboard' in navigator) {
 		return navigator.clipboard.writeText(str);
 	}
