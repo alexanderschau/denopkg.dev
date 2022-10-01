@@ -92,3 +92,33 @@
 >
 	Copy to clipboard
 </a>
+
+<hr />
+<div class="text-xl font-bold my-3">Add a badge to your README.md</div>
+<div class="flex my-5 max-w-md mx-auto">
+	<a
+		class=""
+		target="_blank"
+		href={`/import/${type || 'type'}${server !== null ? '/@' + server : ''}/${owner || 'user'}/${
+			repo || 'repo'
+		}@${tag || 'tag or branch'}/${path || 'path/to/file'}`}
+	>
+		<img src="/badge.svg" alt="badge" />
+	</a>
+	<a
+		on:click={(e) => {
+			e.preventDefault();
+			copyToClipboard(
+				`[![denopkg.dev badge](https://denopkg.dev/badge.svg)](https://denopkg.dev/${
+					type || 'type'
+				}${server !== null ? '/@' + server : ''}/${owner || 'user'}/${repo || 'repo'}@${
+					tag || 'tag or branch'
+				}/${path || 'path/to/file'})`
+			);
+		}}
+		href="/"
+		class="underline underline-offset-2 mx-2 block hover:opacity-50 flex-1 text-right"
+	>
+		Copy badge
+	</a>
+</div>
